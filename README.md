@@ -1,14 +1,14 @@
 # blackjack
 A simple blackjack simulation.
 
-A Simulation to determine the probabilities of if you should hit, stand, double down, split, and insurance.
+A Simulation to determine the probabilities of if you should hit, stand, double down, split, or take insurance.
 
 GOAL:
 
 > The goal of BlackJack is to have a total of 21 with any number of cards.
 
 
-Rules of BlackJack:
+RULES:
 
 > Blackjack is 21 with an Ace and a 10 valued card. 3:2 payout
 
@@ -30,4 +30,4 @@ Rules of BlackJack:
 > Split - Only if the two cards have the same value you can split them as two seperate hands and recieve one card for each hand.
 
 > Surrender - Is offered when the dealer upcard is either an ace value or 10 value.
->Push - When the dealer and the player has the same value.
+> Push - When the dealer and the player has the same value.

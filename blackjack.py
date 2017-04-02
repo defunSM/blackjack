@@ -1,6 +1,8 @@
 #!/usr/bin/env python
 import numpy as np
 
+
+
 """
 A Simulation to determine the probabilities of if you should hit, stand, double down, split, and insurance.
 
@@ -26,3 +28,47 @@ Split - Only if the two cards have the same value you can split them as two sepe
 Surrender - Is offered when the dealer upcard is either an ace value or 10 value.
 Push - When the dealer and the player has the same value.
 """
+
+
+
+
+def construct_deck(number_of_decks=1):
+
+    """
+    Creates a list of all of the possible values that are in a single deck.
+
+    deck is an empty array.
+    royals are the King, Queen and Jack which are appended into the deck.
+    Ace is also appended later on depending on how many number of decks are provided to the function.
+
+    A standard deck contains 52 cards which is how many elements deck will have if construct_deck is given 1 as an argument.
+
+    If number_of_decks is given to be 2 than two decks will be in deck and so on.
+    """
+
+
+    deck = []
+    royals = ["K", "Q", "J"]
+    ace = "A"
+
+    for i in range(0,4*number_of_decks):
+
+        for i in range(2,11):
+            deck.append(i)
+
+        for royal in royals:
+            deck.append(royal)
+
+        deck.append(ace)
+
+    return deck
+
+
+def main():
+
+    deck = construct_deck()
+    print(len(deck))
+
+
+if __name__=="__main__":
+    main()
