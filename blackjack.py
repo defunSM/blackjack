@@ -1,7 +1,6 @@
 #!/usr/bin/env python
 import numpy as np
-
-
+import random
 
 """
 A Simulation to determine the probabilities of if you should hit, stand, double down, split, and insurance.
@@ -29,9 +28,6 @@ Surrender - Is offered when the dealer upcard is either an ace value or 10 value
 Push - When the dealer and the player has the same value.
 """
 
-
-
-
 def construct_deck(number_of_decks=1):
 
     """
@@ -45,7 +41,6 @@ def construct_deck(number_of_decks=1):
 
     If number_of_decks is given to be 2 than two decks will be in deck and so on.
     """
-
 
     deck = []
     royals = ["K", "Q", "J"]
@@ -63,11 +58,21 @@ def construct_deck(number_of_decks=1):
 
     return deck
 
+def shuffle_deck(deck):
+
+    """
+    Shuffles the deck randomly. Producing a shuffled deck. Shuffle_deck requires a deck which can be constructed from the construct_deck function.
+    """
+
+    random.shuffle(deck)
+    return deck
+
 
 def main():
 
     deck = construct_deck()
-    print(len(deck))
+    shuffled_deck = shuffle_deck(deck)
+    print(shuffled_deck)
 
 
 if __name__=="__main__":
