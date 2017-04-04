@@ -25,7 +25,7 @@ Double Down - Allowed to after two cards are dealth and he will get one more car
 Split - Only if the two cards have the same value you can split them as two seperate hands and recieve one card for each hand.
 
 Surrender - Is offered when the dealer upcard is either an ace value or 10 value.
-Push - When the dealer and the player has the same value.
+Push - When the dealer and the player has the same value. (No money is exchanged)
 """
 
 def construct_deck(number_of_decks=1):
@@ -67,12 +67,45 @@ def shuffle_deck(deck):
     random.shuffle(deck)
     return deck
 
+def count_hand(array):
+    """
+    Given an array counts up the total value of the hand.
+    Fix up the count_hand function so that it can correctly determine when to
+    treat an Ace as a 1 and when to treat it as a 11.
+    """
+
+    count = 0
+
+    for i in array:
+        if isinstance(i, int):
+            count+=i
+
+        else:
+            if "K" == i:
+                count+=10
+                print("no")
+            elif "Q" == i:
+                count+=10
+            elif "J" == i:
+                count+=10
+            else:
+                if count+11 > 21:
+                    count+=1
+                else:
+                    count+=11
+
+
+    return count
+
 
 def main():
 
     deck = construct_deck()
     shuffled_deck = shuffle_deck(deck)
     print(shuffled_deck)
+
+    count = count_hand(["A", 1])
+    print(count)
 
 
 if __name__=="__main__":
