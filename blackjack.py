@@ -94,7 +94,6 @@ def count_hand(array):
                 else:
                     count+=11
 
-
     return count
 
 
