@@ -3,6 +3,7 @@ import numpy as np
 import random
 
 from collections import Counter
+import operator
 
 """
 A Simulation to determine the probabilities of if you should hit, stand, double down, split, and insurance.
@@ -97,27 +98,22 @@ def count_hand(array):
 
     return count
 
-def outcome_for_first_hand_value(iterations=100):
+def outcome_for_first_hand_value(iterations=100, number_of_decks=1):
 
     counter = []
 
     for i in range(0, iterations):
 
-        deck = construct_deck()
+        deck = construct_deck(number_of_decks)
         shuffled_deck = shuffle_deck(deck)
 
         count = count_hand(shuffled_deck[0:2])
         counter.append(count)
 
 
-    for key, value in dict(Counter(counter)).items():  # Fix this up.
+    for key, value in reversed(sorted(dict(Counter(counter)).items(), key=operator.itemgetter(1))):  # It is now in order from highest probability to lowest.
 
         print(key, " => ", round((value/iterations)*100, 3), "%")
-
-
-
-
-
 
     return Counter(counter)
 
@@ -132,11 +128,7 @@ def main():
     # count = count_hand(shuffled_deck[0:2])
     # print(count)
 
-    print(outcome_for_first_hand_value(50000))
-
-
-
-
+    print(outcome_for_first_hand_value(50000, 1))
 
 if __name__=="__main__":
     main()
