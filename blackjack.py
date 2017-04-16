@@ -98,7 +98,7 @@ def count_hand(array):
 
     return count
 
-def outcome_for_first_hand_value(iterations=100, number_of_decks=1):
+def outcome_for_first_hand_value(iterations=100, number_of_decks=1, number_of_cards=2):
 
     counter = []
 
@@ -107,7 +107,7 @@ def outcome_for_first_hand_value(iterations=100, number_of_decks=1):
         deck = construct_deck(number_of_decks)
         shuffled_deck = shuffle_deck(deck)
 
-        count = count_hand(shuffled_deck[0:2])
+        count = count_hand(shuffled_deck[0:number_of_cards])
         counter.append(count)
 
 
@@ -128,7 +128,7 @@ def main():
     # count = count_hand(shuffled_deck[0:2])
     # print(count)
 
-    print(outcome_for_first_hand_value(50000, 1))
+    print(outcome_for_first_hand_value(50000, 1, 1))
 
 if __name__=="__main__":
     main()
