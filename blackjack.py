@@ -100,6 +100,10 @@ def count_hand(array):
 
 def outcome_for_first_hand_value(iterations=100, number_of_decks=1, number_of_cards=2):
 
+    """
+    This will calculate the probabilities of getting a value after getting a certain amount of cards.
+    """
+
     counter = []
 
     for i in range(0, iterations):
